@@ -1,0 +1,25 @@
+uuid: ce45a419-1b69-44d5-84a7-34dc8b3552f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.policy
+  module:
+    - system
+  theme:
+    - olivero_sub
+id: olivero_sub_policy
+theme: olivero_sub
+region: footer
+weight: 0
+provider: null
+plugin: 'system_menu_block:policy'
+settings:
+  id: 'system_menu_block:policy'
+  label: Policy
+  label_display: visible
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

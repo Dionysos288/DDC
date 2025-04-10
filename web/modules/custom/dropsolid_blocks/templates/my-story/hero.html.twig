@@ -1,0 +1,31 @@
+{#
+/**
+ * @file
+ * Theme implementation for the My Story Hero block.
+ *
+ * Available variables:
+ * - content: An array of content elements including:
+ *   - description: The main content description (HTML)
+ */
+#}
+<section class="my-story-hero">
+  <div class="my-story__star">
+        <img src="{{ base_path ~ directory }}/images/icons/my-story/star.svg" alt="Arrow bottom" />
+      </div>
+        <div class="my-story__arrow">
+        <img src="{{ base_path ~ directory }}/images/icons/my-story/arrow.svg" alt="Arrow bottom" />
+      </div>
+  <div class="my-story-hero__content">
+     <h1 class="my-story-hero__title h1">
+       Championing Digital
+       <span class="my-story-hero-highlight">
+         <span class="my-story-hero-text h1">Freedom</span>
+         <span class="my-story-hero-bg"></span>
+       </span>
+     </h1>
+   
+    <div class="my-story-hero__text body-xl">
+      {{ content.description|raw }}
+    </div>
+  </div>
+</section> 

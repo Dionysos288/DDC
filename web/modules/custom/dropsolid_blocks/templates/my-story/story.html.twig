@@ -1,0 +1,49 @@
+{#
+/**
+ * @file
+ * Theme implementation for the My Story Block.
+ *
+ * Available variables:
+ * - content: An array of content elements including:
+ *   - subheader: The subheader text
+ *   - title: The block title
+ *   - description: The main content description
+ *   - timeline_items: Array of timeline items, each containing:
+ *     - year: The year
+ *     - title: The item title
+ *     - description: The item description
+ *     - image: The image path
+ */
+#}
+<section class="my-story-story">
+  <div class="my-story-story__header">
+    <div class="my-story-story__header-left">
+      <div class="my-story-story__line__label">
+        <div class="my-story-story__line"></div>
+        <span class="my-story-story__label body-l">{{ content.subheader }}</span>
+      </div>
+      <span class="my-story-story__title-highlight">
+        <span class="my-story-story__title-text h2">{{ content.title }}</span>
+        <span class="my-story-story__title-bg"></span>
+      </span>
+    </div>
+    <p class="my-story-story__description body-xl">{{ content.description|raw }}</p>
+  </div>
+
+  <div class="my-story-story__timeline">
+    {% for item in content.timeline_items %}
+      <div class="my-story-story__item">
+        <div class="my-story-story__year h5">{{ item.year }}</div>
+        <div class="my-story-story__content">
+          <div class="my-story-story__image">
+            <img src="{{ base_path ~ directory }}/{{ item.image }}" alt="{{ item.title }}" />
+          </div>
+          <div class="my-story-story__highlight">
+            <h3 class="my-story-story__item-title">{{ item.title }}</h3>
+            <p class="my-story-story__item-text">{{ item.description }}</p>
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+</section> 

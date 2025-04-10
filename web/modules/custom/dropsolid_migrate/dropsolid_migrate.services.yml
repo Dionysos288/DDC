@@ -1,0 +1,6 @@
+services:
+  dropsolid_migrate.commands:
+    class: \Drupal\dropsolid_migrate\Commands\DropsolidMigrateCommands
+    arguments: ["@entity_type.manager"]
+    tags:
+      - { name: drush.command }

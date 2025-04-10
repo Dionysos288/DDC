@@ -1,0 +1,15 @@
+_core:
+  default_config_hash: HlN7eAN2N4JIHsYv56V4E7sqC9bS609KwvGFjyD_mgk
+langcode: en
+uuid: 86729b2a-f5c3-4558-8e3e-a305d05279a8
+name: "My Drupal CMS site"
+mail: dion.zeneli@dropsolid.com
+slogan: ""
+page:
+  403: ""
+  404: ""
+  front: /home
+admin_compact_mode: false
+weight_select_max: 100
+default_langcode: en
+mail_notification: null

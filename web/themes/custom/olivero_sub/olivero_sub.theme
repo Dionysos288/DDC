@@ -1,0 +1,152 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the Olivero Sub theme.
+ */
+
+use Drupal\node\NodeInterface;
+use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Url;
+use Drupal\media\MediaInterface;
+use Drupal\file\FileInterface;
+use Drupal\taxonomy\Entity\Term;
+use Drupal\Core\Template\Attribute;
+use Drupal\taxonomy\Entity\Vocabulary;
+
+/**
+ * Implements hook_preprocess_views_view().
+ */
+function olivero_sub_preprocess_views_view(&$variables) {
+  $view = $variables['view'];
+  
+  // Add custom preprocessing for blog_listing view
+  if ($view->id() == 'blog_listing' || $view->id() == 'blog') {
+    // Add any custom variables needed for the blog view
+    $variables['attributes']['class'][] = 'blog-listing-view';
+    
+    // If you need to add specific CSS or JS
+    $variables['#attached']['library'][] = 'olivero_sub/blog-card';
+    
+    // Optionally add custom pagination
+    if (!empty($variables['pager'])) {
+      $variables['pager']['#theme_wrappers'][] = 'pager__blog';
+    }
+    
+    // Add view-specific text that doesn't depend on routes
+    $variables['view_all_text'] = t('View all posts');
+  }
+}
+
+/**
+ * Helper function to get related posts with the same tags.
+ *
+ * @param \Drupal\node\NodeInterface $node
+ *   The current node.
+ *
+ * @return array
+ *   An array of related posts, limited to 2.
+ */
+function _olivero_sub_get_related_posts(NodeInterface $node) {
+  $related_posts = [];
+  
+  // Check if the node has tags.
+  if ($node->hasField('field_tags') && !$node->get('field_tags')->isEmpty()) {
+    // Get the tag IDs.
+    $tag_ids = [];
+    foreach ($node->get('field_tags')->referencedEntities() as $tag) {
+      $tag_ids[] = $tag->id();
+    }
+    
+    // Query for nodes with the same tags.
+    $query = \Drupal::entityQuery('node')
+      ->condition('type', 'blog')
+      ->condition('status', 1)
+      ->condition('nid', $node->id(), '<>') // Exclude current node.
+      ->condition('field_tags.entity.tid', $tag_ids, 'IN')
+      ->sort('created', 'DESC')
+      ->accessCheck(TRUE) // Explicitly set access check
+      ->range(0, 2); // Limit to 2 related posts.
+    
+    $nids = $query->execute();
+    
+    if (!empty($nids)) {
+      $related_nodes = \Drupal::entityTypeManager()->getStorage('node')->loadMultiple($nids);
+      
+      foreach ($related_nodes as $related_node) {
+        $related_post = [];
+        
+        // Get the node title.
+        $related_post['title'] = $related_node->getTitle();
+        
+        // Get the node URL.
+        $related_post['url'] = $related_node->toUrl()->toString();
+        
+        // Get the node author.
+        $related_post['author'] = $related_node->getOwner()->getDisplayName();
+        
+        // Get the node date.
+        $date = new DrupalDateTime('@' . $related_node->getCreatedTime());
+        $related_post['date'] = \Drupal::service('date.formatter')->format($date->getTimestamp(), 'custom', 'M j, Y');
+        
+        // Get the featured image if available.
+        if ($related_node->hasField('field_featured_image') && !$related_node->get('field_featured_image')->isEmpty()) {
+          $media = $related_node->get('field_featured_image')->entity;
+          
+          if ($media instanceof MediaInterface && $media->hasField('field_media_image')) {
+            $file = $media->get('field_media_image')->entity;
+            
+            if ($file instanceof FileInterface) {
+              $related_post['image'] = [
+                '#theme' => 'image_style',
+                '#style_name' => 'large',
+                '#uri' => $file->getFileUri(),
+                '#alt' => $media->hasField('field_media_image') && !$media->get('field_media_image')->isEmpty() 
+                  ? $media->get('field_media_image')->alt 
+                  : $related_node->getTitle(),
+               
+              ];
+            }
+          }
+        }
+        
+        // Get the tags if available.
+        if ($related_node->hasField('field_tags') && !$related_node->get('field_tags')->isEmpty()) {
+          $tags = [];
+          foreach ($related_node->get('field_tags')->referencedEntities() as $tag) {
+            $tags[] = $tag->label();
+          }
+          $related_post['tags'] = implode(', ', $tags);
+        }
+        
+        $related_posts[] = $related_post;
+      }
+    }
+  }
+  
+  return $related_posts;
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function olivero_sub_preprocess_node(&$variables) {
+  $node = $variables['node'];
+  
+  // Only process for blog nodes in full view mode
+  if ($node->getType() == 'blog' && $variables['view_mode'] == 'full') {
+    // Get related posts
+    $variables['related_posts'] = _olivero_sub_get_related_posts($node);
+    
+    // Add the blog article library
+    $variables['#attached']['library'][] = 'olivero_sub/blog-article';
+  }
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function olivero_sub_page_attachments_alter(array &$attachments) {
+  $attachments['#attached']['library'][] = 'olivero_sub/mobile-menu';
+}
+

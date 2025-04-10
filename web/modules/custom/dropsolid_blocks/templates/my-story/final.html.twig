@@ -1,0 +1,36 @@
+{#
+/**
+ * @file
+ * Theme implementation for the My Story Final block.
+ *
+ * Available variables:
+ * - content: An array of content elements including:
+ *   - description: The main content description (HTML)
+ *   - subheader: The subheader text
+ */
+#}
+<section class="my-story-final full-width">
+<div class="my-story-final__pattern">
+        <img src="{{ base_path ~ directory }}/images/icons/my-story/pattern.svg" alt="Arrow bottom" />
+      </div>
+      <div class="my-story-final__note">
+        <img src="{{ base_path ~ directory }}/images/icons/my-story/note.svg" alt="Arrow bottom" />
+      </div>
+  <div class="my-story-final__content">
+    <h2 class="my-story-final__title h2">
+      <span>Looking Ahead:</span> The Future of Open Digital Experiences
+    </h2>
+    <div class="my-story-final__description">
+      <p class="body-xl">{{ content.description|raw }}</p>
+    </div>
+    <div class="my-story-final__bold">
+      <h4>{{ content.subheader }}</h4>
+    </div>
+    <a class="my-story-final__button" href="/contact">
+      <div class="my-story-final__image">
+        <img src="{{ base_path ~ directory }}/images/icons/arrow.svg" alt="Arrow Right" />
+      </div>
+      <p class="body-xl">Get in touch</p>
+    </a>
+  </div>
+</section> 

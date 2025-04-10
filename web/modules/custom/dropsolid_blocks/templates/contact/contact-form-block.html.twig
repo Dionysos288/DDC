@@ -1,0 +1,38 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a Contact Form block.
+ *
+ * Available variables:
+ * - content: An array of content, including:
+ *   - title: The block title
+ *   - subtitle: The block subtitle
+ *   - description: The block description
+ *   - form: The rendered contact form
+ */
+#}
+<section class="contact-form full-width-content" id="contact-form">
+  <div class="contact-form__left">
+    <div class="contact-form__left-content">
+    <div class="contact-form__star">
+        <img src="{{ base_path ~ directory }}/images/icons/stars.svg" alt="Arrow" />
+      </div>     
+       <h2 class="contact-form__left-title h2">Just Contact</h2>
+      <div class="contact-form__arrow">
+        <img src="{{ base_path ~ directory }}/images/icons/contact/arrowContact.png" alt="Arrow" />
+      </div>
+    </div>
+  </div>
+  
+  <div class="contact-form__right">
+  <div class="contact-form__pattern">
+        <img src="{{ base_path ~ directory }}/images/icons/contact/pattern.svg" alt="Arrow bottom" />
+      </div>
+    <div class="contact-form__right-content">
+      <h2 class="contact-form__right-title h2">A project <span >with Dominique</span></h2>
+      <div class="contact-form__form">
+        {{ content.form }}
+      </div>
+    </div>
+  </div>
+</section> 

@@ -1,0 +1,64 @@
+{#
+/**
+ * @file
+ * Theme implementation for the Hero block.
+ *
+ * Available variables:
+ * - content: An array of content elements including:
+ *   - title: The block title
+ *   - subtitle: The subtitle (optional)
+ *   - description: The main content description (HTML)
+ *   - social_links: Array of social media links (hardcoded)
+ *     - twitter: Twitter profile URL
+ *     - linkedin: LinkedIn profile URL
+ *     - drupal: Drupal profile URL
+ *   - image: The image path relative to theme directory
+ *   - image_position: The position of the image (left, center, right)
+ * - base_path: The base path of the site
+ * - directory: The directory path of the theme
+ * - socials : show socials or not (default true)
+ */
+#}
+<section class="hero">
+  <div class="hero__image-wrapper">
+      <img src="{{ base_path ~ directory }}/{{ content.image }}" alt="{{ content.title }}" {% if content.image_position == 'left' %}class="image_pos_left"{% elseif content.image_position == 'right' %}class="image_pos_right"{% endif %} />
+  </div>
+  <div class="hero__content">
+    <div class="hero__star">
+        <img src="{{ base_path ~ directory }}/images/icons/contact/stars.svg" alt="Arrow bottom" />
+      </div>
+      <h1>
+      <span class="hero__title-highlight">
+        <span class="hero__title-text h1">{{ content.title }}</span>
+        <span class="hero__title-bg"></span>
+      </span>
+    </h1>
+      {% if content.subtitle %}
+        <span class="hero__subtitle body-xxl">{{ content.subtitle }}</span>
+      {% endif %}
+      <div class="hero__text">
+        <div class="body-xl">{{ content.description|raw }}</div>
+      </div>
+      {% if content.socials %}
+        <div class="hero__social">
+          {% if content.social_links.twitter %}
+            <a href="{{ content.social_links.twitter }}" target="_blank" rel="noopener noreferrer">
+              <img src="{{ base_path ~ directory }}/images/icons/twitter.svg" alt="Twitter" />
+            </a>
+          {% endif %}
+          
+          {% if content.social_links.linkedin %}
+            <a href="{{ content.social_links.linkedin }}" target="_blank" rel="noopener noreferrer">
+              <img src="{{ base_path ~ directory }}/images/icons/linkedin.svg" alt="LinkedIn" />
+            </a>
+          {% endif %}
+          
+          {% if content.social_links.drupal %}
+            <a href="{{ content.social_links.drupal }}" target="_blank" rel="noopener noreferrer">
+              <img src="{{ base_path ~ directory }}/images/icons/drupal.svg" alt="Drupal" class= "hero__social-icon"/>
+            </a>
+          {% endif %}
+        </div>
+      {% endif %}
+  </div>
+</section> 

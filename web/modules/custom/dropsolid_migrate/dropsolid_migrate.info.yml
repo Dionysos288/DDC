@@ -1,0 +1,7 @@
+name: Dropsolid Migration
+type: module
+description: "Custom migration plugins and utilities for Dropsolid migration."
+package: Custom
+core_version_requirement: ^9 || ^10 || ^11
+dependencies:
+  - drupal:migrate

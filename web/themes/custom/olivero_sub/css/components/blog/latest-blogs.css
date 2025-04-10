@@ -1,0 +1,242 @@
+.latest-blogs {
+  padding: 104px 0;
+  background-color: var(--base-0);
+}
+
+.latest-blogs__header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 64px;
+  gap: 64px;
+}
+.latest-blogs__header-left {
+  width: 65%;
+}
+.latest-blogs__line__label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-bottom: 4px;
+}
+.latest-blogs__line {
+  height: 2px;
+  width: 36px;
+  background-color: var(--base-80);
+}
+.latest-blogs__label {
+  color: var(--base-80);
+  font-weight: 600;
+}
+
+.latest-blogs__title-highlight {
+  position: relative;
+  display: inline;
+}
+
+.latest-blogs__title-text {
+  position: relative;
+  z-index: 1;
+  font-weight: 600;
+}
+
+.latest-blogs__title-bg {
+  position: absolute;
+  bottom: 4px;
+  left: -4px;
+  right: -4px;
+  height: 10px;
+  background-color: var(--primary-100);
+  z-index: 0;
+  border-radius: 4px;
+}
+
+.latest-blogs__description {
+  color: var(--base-80);
+  width: 25%;
+}
+
+.latest-blogs__grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 32px;
+}
+
+.featured-post {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.featured-post__image {
+  flex: 1;
+  position: relative;
+  margin-bottom: 8px;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.featured-post__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.featured-post__meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.featured-post__date {
+  color: var(--base-60);
+}
+.featured-post__date-mobile {
+  display: none;
+  color: var(--base-60);
+}
+.featured-post__tags {
+  display: flex;
+  gap: 4px;
+}
+
+.featured-post__tag {
+  color: var(--base-60);
+}
+
+.featured-post__title {
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.featured-post__description {
+  color: var(--base-80);
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 77px;
+}
+.latest-blogs__recent {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  height: 100%;
+}
+.recent-post {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 0.8fr 1fr;
+  gap: 16px;
+}
+
+.recent-post__image {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.recent-post__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.recent-post__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.recent-post__title {
+  margin-bottom: 8px;
+  color: var(--base-100);
+}
+
+.recent-post__description {
+  color: var(--base-80);
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 50px;
+}
+
+.recent-post__date {
+  color: var(--base-60);
+}
+
+@media (max-width: 1200px) {
+  .latest-blogs__grid {
+    grid-template-columns: 1fr;
+  }
+  .latest-blogs__recent {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 32px;
+    height: 100%;
+  }
+  .recent-post {
+    flex: initial;
+    display: grid;
+    grid-template-columns: 0.8fr 1fr;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 900px) {
+  .latest-blogs__header {
+    display: flex;
+    justify-content: initial;
+    flex-direction: column;
+    margin-bottom: 48px;
+    gap: 12px;
+  }
+  .latest-blogs__description {
+    width: 90%;
+  }
+}
+@media (max-width: 600px) {
+  .featured-post__meta {
+    display: none;
+  }
+  .featured-post__date-mobile {
+    display: block;
+  }
+  .recent-post {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  .featured-post__description {
+    margin-bottom: 16px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 50px;
+  }
+  .featured-post__image {
+    margin-bottom: 16px;
+  }
+  .recent-post__description {
+    margin-bottom: 16px;
+  }
+  .latest-blogs {
+    padding: 64px 0;
+  }
+  .latest-blogs__description {
+    width: 100%;
+  }
+  .latest-blogs__title-bg {
+    height: 7px;
+  }
+}

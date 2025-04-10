@@ -1,0 +1,15 @@
+.public-speaking-sessions {
+  background-color: var(--secondary-100);
+  padding: 104px 0;
+}
+
+.public-speaking-sessionize__content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+@media (max-width: 600px) {
+  .public-speaking-sessions {
+    padding: 64px 0;
+  }
+}

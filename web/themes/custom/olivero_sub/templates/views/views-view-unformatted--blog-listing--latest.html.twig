@@ -1,0 +1,84 @@
+{#
+/**
+ * @file
+ * Theme override for the Latest blog posts rows.
+ *
+ * Available variables:
+ * - rows: A list of view rows.
+ * - attributes: The row attributes.
+ */
+#}
+
+<div class="latest-blogs__grid">
+  {% if rows|length > 0 %}
+    <div class="latest-blogs__featured">
+      {% set featured = rows[0].content['#node'] %}
+      <a href="{{ path('entity.node.canonical', {'node': featured.id}) }}" class="featured-post">
+        {% if featured.field_featured_image.entity.field_media_image %}
+          <div class="featured-post__image">
+            <img src="{{ file_url(featured.field_featured_image.entity.field_media_image.entity.uri.value) }}" 
+                 alt="{{ featured.field_featured_image.entity.field_media_image.alt }}" />
+          </div>
+        {% endif %}
+        
+        <div class="featured-post__meta">
+          <div class="featured-post__date body-m">
+            {{ featured.created.value|date('M d, Y') }}
+          </div>
+          {% if featured.field_tags %}
+            <div class="featured-post__tags">
+              {% for tag in featured.field_tags %}
+                <span class="featured-post__tag body-m">{{ tag.entity.label }}</span>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+        
+        <h3 class="featured-post__title">
+          {{ featured.label }}
+        </h3>
+        
+        {% if featured.field_description.value %}
+          <div class="featured-post__description body-l">
+            {{ featured.field_description.value }}
+          </div>
+        {% endif %}
+          <div class="featured-post__date-mobile body-m">
+            {{ featured.created.value|date('M d, Y') }}
+          </div>
+      </a>
+    </div>
+
+    {% if rows|length > 1 %}
+      <div class="latest-blogs__recent">
+        {% for row in rows|slice(1, 4) %}
+          {% set post = row.content['#node'] %}
+          <a href="{{ path('entity.node.canonical', {'node': post.id}) }}" class="recent-post">
+            {% if post.field_featured_image.entity.field_media_image %}
+              <div class="recent-post__image">
+                <img src="{{ file_url(post.field_featured_image.entity.field_media_image.entity.uri.value) }}" 
+                     alt="{{ post.field_featured_image.entity.field_media_image.alt }}" />
+              </div>
+            {% endif %}
+            
+            <div class="recent-post__content">
+              <h4 class="recent-post__title">
+                {{ post.label }}
+              </h4>
+              
+              {% if post.field_description.value %}
+                <div class="recent-post__description body-l">
+                  {{ post.field_description.value }}
+                </div>
+              {% endif %}
+              
+              <div class="recent-post__date body-m">
+                {{ post.created.value|date('M d, Y') }}
+              </div>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endif %}
+</div> 

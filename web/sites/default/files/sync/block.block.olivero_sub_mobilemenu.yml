@@ -1,0 +1,25 @@
+uuid: f03e2d41-68fa-4062-b619-e26e9246cbf7
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.mobile-menu
+  module:
+    - system
+  theme:
+    - olivero_sub
+id: olivero_sub_mobilemenu
+theme: olivero_sub
+region: secondary_menu
+weight: 0
+provider: null
+plugin: 'system_menu_block:mobile-menu'
+settings:
+  id: 'system_menu_block:mobile-menu'
+  label: 'Mobile Menu'
+  label_display: '0'
+  provider: system
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility: {  }

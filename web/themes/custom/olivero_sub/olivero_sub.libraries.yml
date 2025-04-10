@@ -1,0 +1,71 @@
+global-styling:
+  version: VERSION
+  css:
+    base:
+      css/base/variables.css: {}
+      css/base/reset.css: {}
+      css/base/typography.css: {}
+    layout:
+      css/layout/layout.css: {}
+    component:
+      css/components/general/header.css: {}
+      css/components/general/button.css: {}
+      css/components/general/split-content.css: {}
+      css/components/general/newsletter.css: {}
+      css/components/general/hero.css: {}
+      css/components/my-story/hero.css: {}
+      css/components/my-story/offices.css: {}
+      css/components/my-story/story.css: {}
+      css/components/my-story/final.css: {}
+      css/components/public-speaking/sessions.css: {}
+      css/components/general/footer.css: {}
+      css/components/contact/hero.css: {}
+      css/components/contact/contact-form.css: {}
+      css/components/blog/blog-hero.css: {}
+      css/components/forms.css: {}
+      css/components/navigation.css: {}
+    theme:
+      css/theme/colors.css: {}
+  js:
+    js/script.js: {}
+
+blog-article:
+  version: VERSION
+  css:
+    component:
+      css/components/blog/blog-article.css: {}
+
+blog-card:
+  version: VERSION
+  css:
+    component:
+      css/components/blog/blog-card.css: {}
+      css/components/blog/latest-blogs.css: {}
+
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupal.ajax
+    - core/drupal.form
+    - core/once
+    - core/jquery.form
+
+global:
+  version: VERSION
+  js:
+    js/mobile-menu.js: {}
+  css:
+    component:
+      css/components/general/header.css: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+
+mobile-menu:
+  js:
+    js/mobile-menu.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/once

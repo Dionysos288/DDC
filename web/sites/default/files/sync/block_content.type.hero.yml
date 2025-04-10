@@ -1,0 +1,10 @@
+uuid: 042a92c4-a315-4133-869f-d39ed247e6d9
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 5v76I8ue6AOSVHu8AhZpYpKsTjmHiYe5SVFvP8UoiSg
+id: hero
+label: 'Hero Block'
+revision: 0
+description: 'A hero block type for displaying person information with image and social links.'

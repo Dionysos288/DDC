@@ -1,0 +1,25 @@
+name: Olivero Sub
+type: theme
+base theme: olivero
+description: "Custom sub-theme for DDC"
+core_version_requirement: ^11
+libraries:
+  - olivero_sub/global-styling
+
+# Regions
+regions:
+  toolbar: Toolbar
+  contextual_links: "Contextual Links"
+  tabs: "Tabs"
+  primary_tabs: "Primary tabs"
+  secondary_tabs: "Secondary tabs"
+  header: Header
+  primary_menu: Primary menu
+  secondary_menu: Secondary menu
+  page_top: Page top
+  page_bottom: Page bottom
+  featured: Featured
+  breadcrumb: Breadcrumb
+  content: Content
+  sidebar: Sidebar
+  footer: Footer

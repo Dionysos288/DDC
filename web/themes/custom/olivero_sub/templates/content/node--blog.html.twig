@@ -1,0 +1,136 @@
+{#
+/**
+ * @file
+ * Theme override to display a blog node.
+ */
+#}
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+{% if view_mode == 'full' %}
+  {{ attach_library('olivero_sub/blog-article') }}
+  <article{{ attributes.addClass('blog-article') }}>
+    <div class="blog-article__header">
+      <div class="blog-article__content__waves">
+        <img src="{{ file_url(directory ~ '/images/blog/waves.svg') }}" alt="Decorative lines V2" />
+      </div>
+      <div class="blog-article__content__star">
+        <img src="{{ file_url(directory ~ '/images/blog/star.svg') }}" alt="Decorative star" />
+      </div>
+      <div class="blog-article__meta">
+        <div class="blog-article__date body-xl">{{ node.created.value|date('M d, Y') }}</div>
+        {% if node.field_tags.entity %}
+          <div class="blog-article__tags">
+            {% for item in node.field_tags %}
+              <div class="field__item body-xl">
+                &nbsp;-&nbsp;{{ item.entity.label }}
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+      <h1{{ title_attributes.addClass('blog-article__title').addClass('h2') }}>{{ label }}</h1>
+      {% if display_submitted %}
+        <div class="blog-article__author body-xl">
+          {{ author_name }}
+        </div>
+      {% endif %}
+    </div>
+    
+    {% if node.field_featured_image.entity.field_media_image %}
+      <div class="blog-article__featured-image">
+        <img src="{{ file_url(node.field_featured_image.entity.field_media_image.entity.uri.value) }}" 
+             alt="{{ node.field_featured_image.entity.field_media_image.alt }}" />
+      </div>
+    {% endif %}
+    
+    <div class="blog-article__content full-width">
+      <div class="blog-article__content__squigly">
+        <img src="{{ file_url(directory ~ '/images/blog/squigly.svg') }}" alt="Decorative star" />
+      </div>
+       <div class="blog-article__content__squiglyV2">
+        <img src="{{ file_url(directory ~ '/images/blog/squiglyV2.svg') }}" alt="Decorative star" />
+      </div>
+       <div class="blog-article__content__starsV2">
+        <img src="{{ file_url(directory ~ '/images/blog/stars.png') }}" alt="Decorative star" />
+      </div>
+      <div{{ content_attributes.addClass('blog-article__body') }}>
+     
+        {% if content._layout_builder %}
+          {{ content._layout_builder.0.content['0e9be297-1812-4215-b940-a61b7e808025'].content.0 }}
+        {% endif %}
+
+        <div class="blog-social-share">
+          <a href="https://www.facebook.com/sharer/sharer.php?u={{ url('<current>', {'absolute': true}) }}" target="_blank" rel="noopener noreferrer" class="social-share-btn facebook-share">
+            <img src="{{ file_url(directory ~ '/images/blog/facebook.svg') }}" alt="Share on Facebook" />
+          </a>
+          <a href="https://x.com/intent/tweet?url={{ url('<current>', {'absolute': true}) }}&text={{ node.label }}" target="_blank" rel="noopener noreferrer" class="social-share-btn twitter-share">
+            <img src="{{ file_url(directory ~ '/images/blog/twitter.svg') }}" alt="Share on Twitter" />
+          </a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ url('<current>', {'absolute': true}) }}" target="_blank" rel="noopener noreferrer" class="social-share-btn linkedin-share">
+            <img src="{{ file_url(directory ~ '/images/blog/linkedin.svg') }}" alt="Share on LinkedIn" />
+          </a>
+          <button onclick="navigator.share({title: '{{ node.label }}', url: '{{ url('<current>', {'absolute': true}) }}'})" class="social-share-btn system-share">
+            <img src="{{ file_url(directory ~ '/images/blog/share.svg') }}" alt="Share" />
+          </button>
+        </div>
+
+      
+      </div>
+    </div>
+    
+    {% if related_posts is not empty %}
+      <div class="blog-article__related">
+        <div class="blog-article__related-top">
+        <h2>
+      <span class="blog-article__title-highlight">
+        <span class="blog-article__related-title h2">{{ 'Related Blogs'|t }}</span>
+        <span class="blog-article__title-bg"></span>
+      </span>
+    </h2>
+          <a href="/blog" class="blog-article__view-button">
+            <span class="body-l">{{ 'All Blogs'|t }}</span>
+            <img src="{{ file_url(directory ~ '/images/icons/arrow.svg') }}" alt="Arrow Right" />
+          </a>
+        </div>
+        <div class="blog-article__related-posts">
+          {% for related_post in related_posts %}
+            <a href="{{ related_post.url }}" class="blog-article__related-post">
+              {% if related_post.image %}
+                <div class="blog-article__related-image">
+                  {{ related_post.image }}
+                </div>
+              {% endif %}
+              <div class="blog-article__related-meta">
+                <div class="blog-article__related-date">{{ related_post.date }}</div>
+                {% if related_post.tags %}
+                  <span>&nbsp;-&nbsp;</span>
+                  <div class="blog-article__related-category">{{ related_post.tags }}</div>
+                {% endif %}
+              </div>
+              <h3 class="blog-article__related-post-title">
+                {{ related_post.title }}
+              </h3>
+              <div class="blog-article__related-author">
+                {{ ' @author'|t({'@author': related_post.author}) }}
+              </div>
+            </a>
+          {% endfor %}
+          <a href="/blog" class="blog-article__view-button-mobile">
+            <span class="body-l">{{ 'All Blogs'|t }}</span>
+            <img src="{{ file_url(directory ~ '/images/icons/arrow.svg') }}" alt="Arrow Right" />
+          </a>
+        </div>
+      </div>
+    {% endif %}
+  </article>
+{% else %}
+  {{ content }}
+{% endif %} 

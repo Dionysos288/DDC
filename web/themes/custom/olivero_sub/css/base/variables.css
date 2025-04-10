@@ -1,0 +1,57 @@
+:root {
+  --breakpoint-mobile: 420px;
+  --breakpoint-tablet: 1100px;
+
+  --spacing-desktop: 120px;
+  --spacing-tablet: 32px;
+  --spacing-mobile: 20px;
+
+  --font-size-h1: 80px;
+  --font-size-h2: 48px;
+  --font-size-h3: 32px;
+  --font-size-h4: 24px;
+  --font-size-h5: 20px;
+  --font-size-body-xxl: 20px;
+  --font-size-body-xl: 18px;
+  --font-size-body-l: 16px;
+  --font-size-body-m: 14px;
+  --font-size-body-s: 12px;
+
+  --font-size-h1-mobile: 44px;
+  --font-size-h2-mobile: 32px;
+  --font-size-h3-mobile: 24px;
+  --font-size-h4-mobile: 20px;
+  --font-size-h5-mobile: 16px;
+  --font-size-body-xxl-mobile: 18px;
+  --font-size-body-xl-mobile: 16px;
+  --font-size-body-l-mobile: 14px;
+  --font-size-body-m-mobile: 12px;
+  --font-size-body-s-mobile: 10px;
+
+  --font-family-clash: "Clash Display", sans-serif;
+  --font-family-inter: "Inter", sans-serif;
+
+  --primary-120: #bed74b;
+  --primary-100: #ddf472;
+  --primary-80: #e4f68e;
+  --primary-60: #ebf8aa;
+  --primary-40: #f1fbc7;
+  --primary-20: #f8fde3;
+
+  --secondary-140: #bbd4d4;
+  --secondary-120: #cae0e0;
+  --secondary-100: #dee8e8;
+  --secondary-80: #e5eded;
+  --secondary-60: #ebf1f1;
+  --secondary-40: #f2f6f6;
+  --secondary-20: #f6f9fc;
+
+  --base-100: #272727;
+  --base-100-hover: #666666;
+  --base-90: #333333;
+  --base-80: #6b6b6b;
+  --base-60: #8c8c8c;
+  --base-40: #d4d4d4;
+  --base-20: #eaeaea;
+  --base-0: #ffffff;
+}

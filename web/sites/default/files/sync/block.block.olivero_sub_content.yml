@@ -1,0 +1,22 @@
+uuid: 5e38ebe6-2aff-4bf2-bdf0-9062ac908ac8
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - olivero_sub
+_core:
+  default_config_hash: hBHXB7hC05XU7pDYzETt-GUcpFlogK1gkjyAsg0Ym58
+id: olivero_sub_content
+theme: olivero_sub
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  label_display: '0'
+  provider: system
+visibility: {  }

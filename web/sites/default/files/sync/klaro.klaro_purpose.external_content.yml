@@ -1,0 +1,9 @@
+uuid: 9f2eca09-003b-479e-bea3-4145aebb9c6e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: DdVZR131nyy6OVL9mBguPmzKgAzSs-6NjqEdbkF55NI
+id: external_content
+label: 'Embedded external content'
+weight: 6

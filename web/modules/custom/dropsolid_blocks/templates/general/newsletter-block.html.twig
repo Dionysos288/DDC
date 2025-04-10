@@ -1,0 +1,43 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a Newsletter block.
+ *
+ * Available variables:
+ * - base_path: The base URL path of the Drupal installation.
+ * - directory: The directory path of the theme.
+ */
+#}
+<section class="newsletter full-width">
+   <div class="newsletter__pattern">
+        <img src="{{ base_path ~ directory }}/images/icons/general/pattern.svg" alt="Arrow bottom" />
+      </div>
+         <div class="newsletter__arrow">
+        <img src="{{ base_path ~ directory }}/images/icons/general/arrow.svg" alt="Arrow bottom" />
+      </div>
+         <div class="newsletter__underline">
+        <img src="{{ base_path ~ directory }}/images/icons/general/underline.svg" alt="Arrow bottom" />
+      </div>
+  <div class="newsletter__content">
+   <div class="newsletter__highlight">
+        <img src="{{ base_path ~ directory }}/images/icons/general/highlight.svg" alt="Arrow bottom" />
+      </div>
+    <div class="newsletter__title-wrapper">
+        <h2 class="newsletter__title">
+        Want to
+        </h2>
+        <h2 class="newsletter__title-highlight">
+        Be up to date?
+        </h2>
+    </div>
+    <p class="newsletter__description body-xl">
+      Get the latest insights, trends, and updates delivered straight to your inbox.
+    </p>
+    <form class="newsletter__form">
+      <div class="newsletter__form-group">
+        <input type="email" class="newsletter__input" placeholder="Enter Your Email" required>
+        <button type="submit" class="newsletter__submit">Get Started</button>
+      </div>
+    </form>
+  </div>
+</section> 

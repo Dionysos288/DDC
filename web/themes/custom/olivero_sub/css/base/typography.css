@@ -1,0 +1,115 @@
+h1,
+.h1 {
+  font-family: var(--font-family-clash);
+  font-weight: 600;
+  font-size: var(--font-size-h1);
+  color: var(--base-100);
+}
+
+h2,
+.h2 {
+  font-family: var(--font-family-clash);
+  font-weight: 600;
+  font-size: var(--font-size-h2);
+  color: var(--base-100);
+}
+
+h3,
+.h3 {
+  font-family: var(--font-family-clash);
+  font-weight: 600;
+  font-size: var(--font-size-h3);
+  color: var(--base-100);
+}
+
+h4,
+.h4 {
+  font-family: var(--font-family-clash);
+  font-weight: 600;
+  font-size: var(--font-size-h4);
+  color: var(--base-100);
+}
+
+h5,
+.h5 {
+  font-family: var(--font-family-clash);
+  font-weight: 600;
+  font-size: var(--font-size-h5);
+  color: var(--base-100);
+}
+
+.body-xxl {
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-body-xxl);
+  color: var(--base-100);
+}
+
+.body-xl {
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-body-xl);
+  color: var(--base-100);
+}
+
+.body-l {
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-body-l);
+  color: var(--base-100);
+}
+
+.body-m {
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-body-m);
+  color: var(--base-100);
+}
+
+.body-s {
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-body-s);
+  color: var(--base-100);
+}
+
+@media (max-width: 600px) {
+  h1,
+  .h1 {
+    font-size: var(--font-size-h1-mobile);
+  }
+
+  h2,
+  .h2 {
+    font-size: var(--font-size-h2-mobile);
+  }
+
+  h3,
+  .h3 {
+    font-size: var(--font-size-h3-mobile);
+  }
+
+  h4,
+  .h4 {
+    font-size: var(--font-size-h4-mobile);
+  }
+
+  h5,
+  .h5 {
+    font-size: var(--font-size-h5-mobile);
+  }
+  .body-xxl {
+    font-size: var(--font-size-body-xxl-mobile);
+  }
+
+  .body-xl {
+    font-size: var(--font-size-body-xl-mobile);
+  }
+
+  .body-l {
+    font-size: var(--font-size-body-l-mobile);
+  }
+
+  .body-m {
+    font-size: var(--font-size-body-m-mobile);
+  }
+
+  .body-s {
+    font-size: var(--font-size-body-s-mobile);
+  }
+}

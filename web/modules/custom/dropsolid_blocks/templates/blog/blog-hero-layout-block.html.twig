@@ -1,0 +1,67 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a blog hero layout block.
+ *
+ * Available variables:
+ * - featured_blog: The featured blog post data.
+ *   - title: The title of the blog post.
+ *   - url: The URL of the blog post.
+ *   - image: The URL of the featured image.
+ *   - image_alt: The alt text for the featured image.
+ *   - author: The author of the blog post.
+ *   - date: The formatted date of the blog post.
+ *   - tags: An array of tag names.
+ *   - description: The description or excerpt of the blog post.
+ * - directory: The theme directory path.
+ */
+#}
+<div class="blog-hero">
+  <div class="blog-hero__inner">
+      {% if featured_blog.image %}
+        <div class="blog-hero__featured-image">
+          <img src="{{ featured_blog.image }}" alt="{{ featured_blog.image_alt }}" />
+        </div>
+      {% endif %}
+      <div class="blog-hero__content">
+      <div class="blog-hero__featured-meta">
+        <div class="blog-hero__author body-l">
+          {{ 'By'|t }} {{ featured_blog.author }}
+        </div>
+        <div class="blog-hero__date body-l">
+          {{ featured_blog.date }}
+        </div>
+      </div>
+       <a class= "blog-hero__title h2" href="{{ path('entity.node.canonical', {'node': featured_blog.id}) }}">
+        <span class="blog-hero__title-highlight">
+          <span class="blog-hero__title h2">{{ featured_blog.title }}</span>
+          <span class="blog-hero__title-bg"></span>
+        </span>
+     
+    </a>
+    
+      
+      {% if featured_blog.description %}
+        <div class="blog-hero__description body-xxl">
+          {{ featured_blog.description|raw }}
+        </div>
+      {% endif %}
+      
+      <div class="blog-hero__social-share">
+        <span class="blog-hero__share-text body-l">{{ 'Share on'|t }}</span>
+        <div class="blog-hero__share-buttons">
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://drupal-cms-3.ddev.site{{ featured_blog.url }}" target="_blank" rel="noopener noreferrer" class="blog-hero__share-btn facebook-share">
+            <img src="/{{ directory }}/images/blog/facebookV2.svg" alt="{{ 'Share on Facebook'|t }}" />
+          </a>
+          <a href="https://twitter.com/intent/tweet?url=https://drupal-cms-3.ddev.site{{ featured_blog.url }}&text={{ featured_blog.title }}" target="_blank" rel="noopener noreferrer" class="blog-hero__share-btn twitter-share">
+            <img src="/{{ directory }}/images/blog/twitterV2.svg" alt="{{ 'Share on Twitter'|t }}" />
+          </a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://drupal-cms-3.ddev.site{{ featured_blog.url }}" target="_blank" rel="noopener noreferrer" class="blog-hero__share-btn linkedin-share">
+            <img src="/{{ directory }}/images/blog/linkedinV2.svg" alt="{{ 'Share on LinkedIn'|t }}" />
+          </a>
+         
+        </div>
+      </div>
+      </div>
+  </div>
+</div> 

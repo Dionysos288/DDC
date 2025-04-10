@@ -1,0 +1,52 @@
+{#
+/**
+ * @file
+ * Theme override for the blog_listing view.
+ *
+ * Available variables:
+ * - attributes: Remaining HTML attributes for the element.
+ * - title: The title of the view
+ * - rows: A list of the view's row items.
+ * - header: The view header.
+ * - footer: The view footer.
+ * - empty: The empty text to display if there are no rows.
+ * - pager: The pager output.
+ * - exposed: Exposed widget form/info to display.
+ * - feed_icons: Feed icons to display, if any.
+ * - more: An optional link to the next page of results.
+ * - title_prefix/suffix: A prefix/suffix to the title.
+ * - attachment_before/after: A before/after appendix to the view.
+ * - feed_icons: Feed icons to display, if any.
+ * - more: A link to the next page of results.
+ *
+ * @see template_preprocess_views_view()
+ */
+#}
+
+<div{{ attributes.addClass('blog-card-view').addClass('full-width') }}>
+ 
+<div class="blog-inner">
+  <h2 class="blog-inner-title"> All <span>Blogs</span> </h2>
+ 
+
+ 
+  <div class='blog-card-line'/>
+  {% if rows -%}
+    <div class="blog-card-view__content">
+      <div class="blog-card-grid">
+        {{ rows }}
+      </div>
+    </div> 
+  {% endif %}
+
+ 
+  {% if pager %}
+    <div class="blog-card-view__pager">
+      {{ pager }}
+    </div>
+  {% endif %}
+
+ 
+  
+  </div>
+</div>

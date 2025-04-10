@@ -1,0 +1,60 @@
+langcode: en
+status: true
+dependencies: {}
+id: tags
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - Drupal 7
+  - Content
+  - Taxonomy term
+migration_group: default
+label: Blog category terms migration from D7
+source:
+  plugin: d7_taxonomy_term
+  bundle: vocabulary_5
+  key: migrate
+process:
+  # Preserve term ID from D7
+  tid: tid
+
+  # Basic fields
+  name: name
+  description: description
+  weight: weight
+
+  # Set vocabulary
+  vid:
+    plugin: default_value
+    default_value: blog_category
+
+  # Language handling
+  langcode:
+    plugin: default_value
+    default_value: en
+
+  # Parent terms if hierarchical
+  parent_id:
+    - plugin: skip_on_empty
+      method: process
+      source: parent
+    - plugin: migration_lookup
+      migration: tags
+
+  # Set as non-translatable
+  content_translation_source:
+    plugin: default_value
+    default_value: und
+
+  # URL alias handling
+  path:
+    plugin: urlencode
+    source: name
+
+destination:
+  plugin: entity:taxonomy_term
+  default_bundle: blog_category
+migration_dependencies:
+  required: {}
+  optional: {}

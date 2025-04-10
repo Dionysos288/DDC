@@ -1,0 +1,68 @@
+{#
+/**
+ * @file
+ * Theme override to display a blog node in card view mode.
+ */
+#}
+{%
+  set classes = [
+    'blog-card',
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+  ]
+%}
+
+<article{{ attributes.addClass(classes) }}>
+
+  <div class="blog-card__inner">
+    <div class="blog-card__inner-left">
+    {% if content.field_featured_image|render %}
+      <div class="blog-card__image">
+        {{ content.field_featured_image }}
+      </div>
+    {% endif %}
+    
+    <div class="blog-card__content">
+      <h4{{ title_attributes.addClass('blog-card__title') }}>
+       {{ label }}
+      </h4>
+       {% if display_submitted %}
+        <div class="blog-card__meta">
+          <span class="blog-card__author body-l"> {{ author_name }}</span>
+        </div>
+      {% endif %}
+      {% if node.hasField('field_tags') and not node.get('field_tags').isEmpty() %}
+        <div class="blog-card__tags">
+          {% for item in node.get('field_tags') %}
+            {% if item.entity %}
+              <span class="blog-card__tag body-l">{{ item.entity.label() }}</span>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+      
+    
+      </div>
+      </div>
+     
+      
+      <div class="blog-card__under">
+       {% if node.hasField('field_tags') and not node.get('field_tags').isEmpty() %}
+        <div class="blog-card__tags-mobile">
+          {% for item in node.get('field_tags') %}
+            {% if item.entity %}
+              <span class="blog-card__tag body-l">{{ item.entity.label() }}</span>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endif %}
+      <a href="{{ path('entity.node.canonical', {'node': node.id}) }}" class="blog-card__read-more">
+ <img src="{{ base_path ~ directory }}/images/blog/arrow-right.svg" alt="{{ 'arrow'|t }}" />
+       </a>
+    
+  </div>
+</article> 

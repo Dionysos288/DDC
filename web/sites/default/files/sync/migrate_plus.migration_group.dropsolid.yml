@@ -1,0 +1,14 @@
+uuid: b0fe65cf-737a-42e1-8acd-2842d4a7b6c9
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ZYFuqsCe3pK9fJfatVdN4KiEwR3s_ZH41_YSw8TKZZA
+id: dropsolid
+label: 'Dropsolid D7 to D11 Migrations'
+description: 'Migrations from Drupal 7 to Drupal 11'
+source_type: 'Drupal 7'
+module: null
+shared_configuration:
+  source:
+    key: migrate

@@ -1,0 +1,7 @@
+name: Dropsolid Blocks
+type: module
+description: "Custom blocks for Dropsolid website"
+package: Custom
+core_version_requirement: ^11
+dependencies:
+  - drupal:block

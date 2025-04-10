@@ -1,0 +1,104 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Dropsolid Blocks module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function dropsolid_blocks_theme($existing, $type, $theme, $path) {
+  return [
+    'dropsolid_hero_block' => [
+      'variables' => [
+        'content' => NULL,
+        'base_path' => NULL,
+        'directory' => NULL,
+      ],
+      'template' => 'general/hero-block',
+    ],
+    'dropsolid_split_content_block' => [
+      'variables' => [
+        'content' => NULL,
+        'base_path' => NULL,
+        'directory' => NULL,
+      ],
+      'template' => 'general/split-content-block',
+    ],
+    'dropsolid_my_story_hero_block' => [
+      'variables' => [
+        'content' => NULL,
+      ],
+      'template' => 'my-story/hero',
+    ],
+    'dropsolid_my_story_block' => [
+      'variables' => [
+        'content' => NULL,
+      ],
+      'template' => 'my-story/story',
+    ],
+    'dropsolid_my_story_offices_block' => [
+      'variables' => [],
+      'template' => 'my-story/offices',
+    ],
+    'dropsolid_my_story_final_block' => [
+      'variables' => [
+        'content' => NULL,
+      ],
+      'template' => 'my-story/final',
+    ],
+    'dropsolid_newsletter_block' => [
+      'variables' => [
+        'base_path' => NULL,
+        'directory' => NULL,
+      ],
+      'template' => 'general/newsletter-block',
+    ],
+    'dropsolid_sessionize_block' => [
+      'variables' => [
+        'content' => NULL,
+      ],
+      'template' => 'public-speaking/sessionize-block',
+    ],
+    'dropsolid_contact_hero_block' => [
+      'variables' => [
+        'content' => NULL,
+      ],
+      'template' => 'contact/hero',
+    ],
+    'dropsolid_contact_form_block' => [
+      'variables' => [
+        'content' => NULL,
+        'base_path' => NULL,
+        'directory' => NULL,
+      ],
+      'template' => 'contact/contact-form-block',
+    ],
+    'dropsolid_blog_hero_layout_block' => [
+      'variables' => [
+        'featured_blog' => NULL,
+        'directory' => NULL,
+      ],
+      'template' => 'blog/blog-hero-layout-block',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_mail().
+ */
+function dropsolid_blocks_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'project_contact':
+    case 'confirmation':
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $params['message'];
+      if (!empty($params['headers'])) {
+        foreach ($params['headers'] as $name => $value) {
+          $message['headers'][$name] = $value;
+        }
+      }
+      break;
+  }
+} 

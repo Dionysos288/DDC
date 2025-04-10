@@ -1,0 +1,92 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+button,
+a,
+li {
+  text-decoration: none;
+  background-color: initial;
+  color: initial;
+}
+button:active,
+a:active,
+li:active {
+  outline: none;
+}
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible),
+li:focus:not(:focus-visible) {
+  outline: none;
+}
+button:hover,
+a:hover,
+li:hover {
+  text-decoration: none;
+  background-color: initial;
+  color: initial;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+.visually-hidden {
+  height: 0 !important;
+}
+.toolbar-oriented .toolbar-bar {
+  z-index: 1031;
+}
+
+.toolbar-horizontal .toolbar-tray {
+  z-index: 1030;
+}
+
+.contextual {
+  z-index: 1000;
+}
+pre {
+  white-space: normal !important;
+  overflow: hidden !important;
+  border-radius: 4px !important;
+}
+.text-content pre code,
+.cke_editable pre code {
+  color: var(--base-100) !important;
+}

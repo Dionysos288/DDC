@@ -1,0 +1,20 @@
+uuid: 54651cc4-e038-450b-a6a6-68f3041a8bef
+langcode: en
+status: true
+dependencies:
+  theme:
+    - olivero_sub
+_core:
+  default_config_hash: HLQY2xgby8K3vN_98hiOSasOhm9pdCsH234-s0duJ8Q
+id: olivero_sub_page_title
+theme: olivero_sub
+region: header
+weight: -3
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  label_display: '0'
+  provider: core
+visibility: {  }

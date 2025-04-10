@@ -1,0 +1,15 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a Sessionize Sessions block.
+ *
+ * Available variables:
+ * - content: An array of content, including:
+ *   - sessionize_url: The URL for the Sessionize API
+ */
+#}
+<section class="public-speaking-sessions">
+  <div class="public-speaking-sessionize__content">
+    <script type="text/javascript" src="{{ content.sessionize_url }}"></script>
+  </div>
+</section> 

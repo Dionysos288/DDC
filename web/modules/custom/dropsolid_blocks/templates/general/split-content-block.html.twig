@@ -1,0 +1,61 @@
+{#
+/**
+ * @file
+ * Theme implementation for the Split Content block.
+ *
+ * Available variables:
+ * - content: An array of content elements including:
+ *   - title: The block title
+ *   - title_highlight: Whether to highlight the title
+ *   - subtitle: The subtitle
+ *   - description: The main content description
+ *   - image: The image path
+ *   - image_alt: Alt text for the image
+ *   - image_position: Position of the image (left/right)
+ *   - image_position_inner: Position of the inner image (left/center/right)
+ *   - gradient: Whether to show gradient
+ *   - background: Whether to show background
+ *   - link_url: URL for the CTA link
+ *   - link_text: Text for the CTA link
+ * - base_path: The base path of the site
+ * - directory: The directory path of the theme
+ */
+#}
+<section class="split-content full-width {% if content.image_position == 'right' %}split-content--reverse{% endif %} {% if content.gradient %}split-content--gradient{% endif %} {% if content.background %}split-content--background{% endif %}">
+  <div class="split-content__image">
+    <div class="split-content__image-wrapper">
+      <img src="{{ base_path ~ directory }}/{{ content.image }}" alt="{{ content.image_alt }}" {% if content.image_position_inner == 'left' %}class="image_pos_left"{% elseif content.image_position_inner == 'right' %}class="image_pos_right"{% endif %} />
+    </div>
+    {% if content.link_url and content.link_text %}
+      <div class="split-content__cta">
+        <a href="{{ content.link_url }}" class="split-content__link">
+          {{ content.link_text }}
+          <img src="{{ base_path ~ directory }}/images/icons/arrow.svg" alt="Arrow Right" />
+        </a>
+      </div>
+    {% endif %}
+  </div>
+  <div class="split-content__content">
+    {% if content.subtitle %}
+      <div class="split-content__subtitle-wrapper">
+        <div class="split-content__subtitle-line"></div>
+        <span class="split-content__subtitle body-l">{{ content.subtitle }}</span>
+      </div>
+    {% endif %}
+    
+    <h2 class="split-content__title">
+      {% if content.title_highlight %}
+        <span class="split-content__title-highlight">
+          <span class="split-content__title-text h2">{{ content.title }}</span>
+          <span class="split-content__title-bg"></span>
+        </span>
+      {% else %}
+        {{ content.title }}
+      {% endif %}
+    </h2>
+
+    <div class="split-content__text body-xl">
+      {{ content.description|raw }}
+    </div>
+  </div>
+</section> 

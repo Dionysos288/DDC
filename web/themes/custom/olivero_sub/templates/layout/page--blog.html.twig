@@ -1,0 +1,16 @@
+{#
+/**
+ * @file
+ * Theme override to display a single page for the blog.
+ */
+#}
+{% extends "page.html.twig" %}
+
+{% block content %}
+  <div class="layout-content-wrapper" style="background-color: var(--base-100);">
+    <main role="main" class="layout-content">
+      <a id="main-content" tabindex="-1"></a>
+      {{ page.content }}
+    </main>
+  </div>
+{% endblock %} 

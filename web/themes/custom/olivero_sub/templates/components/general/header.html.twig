@@ -1,0 +1,29 @@
+<header class="site-header">
+  <div class="site-header__inner">
+    
+      <a class="site-header__logo" href="{{ path('<front>') }}" title="{{ 'Home'|t }}" rel="home">
+        <img src="{{ base_path ~ directory }}/images/general/logo.svg" alt="{{ 'Home'|t }}" />
+         <span>DDC</span>
+      </a>
+     
+   
+
+    <button type="button" class="mobile-menu-button" aria-label="{{ 'Toggle menu'|t }}" aria-expanded="false" aria-controls="site-navigation">
+      <img src="{{ base_path ~ directory }}/images/icons/hamburger.svg" alt="{{ 'Menu'|t }}" />
+      <img src="{{ base_path ~ directory }}/images/icons/close.svg" alt="{{ 'Close'|t }}" />
+    </button>
+
+    <nav id="site-navigation" class="site-header__navigation" aria-hidden="true">
+      <span class="site-header__navigation-desktop">
+      {{ page.primary_menu }}
+
+      </span>
+      <span class="site-header__navigation-mobile">
+      {{ page.secondary_menu }}
+
+      </span>
+    </nav>
+
+    <a href="/contact" class="body-l site-header__cta">{{ "Let's Talk"|t }}</a>
+  </div>
+</header> 

@@ -1,0 +1,136 @@
+.site-footer {
+  background-color: var(--base-100);
+  color: var(--base-0);
+  padding: 104px 0 40px 0;
+  border-inline-start: initial !important;
+}
+
+.site-footer__inner {
+  display: flex;
+  gap: 120px;
+  margin-bottom: 40px;
+}
+
+.site-footer__logo {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.site-footer__logo img {
+  height: 25px;
+  width: auto;
+}
+
+.site-footer__logo span {
+  color: var(--base-0);
+  font-weight: 600;
+  font-size: calc(40 / 16 * 1rem);
+  font-family: var(--font-family-clash);
+}
+
+.site-footer__info {
+  margin-bottom: 32px;
+}
+
+.site-footer__info p {
+  color: var(--base-40);
+}
+
+.site-footer__social {
+  display: flex;
+  gap: 28px;
+}
+
+.social-icon {
+  display: flex;
+  width: 32px;
+  height: 32px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--primary-100);
+  transition: background-color 0.2s ease;
+}
+
+.social-icon:hover {
+  background-color: var(--primary-120);
+}
+
+.site-footer__nav {
+  display: flex;
+  gap: 100px;
+}
+
+.site-footer__nav-column h3 {
+  color: var(--base-0);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.site-footer__nav-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.site-footer__nav-column li:not(:last-child) {
+  margin-bottom: 12px;
+}
+
+.site-footer__nav-column a {
+  color: var(--base-40);
+  transition: color 0.2s ease;
+}
+
+.site-footer__nav-column a:hover {
+  color: var(--base-0);
+}
+
+.site-footer__bottom {
+  padding-top: 40px;
+  border-top: 1px solid #6b6b6b;
+  text-align: center;
+}
+
+.site-footer__bottom p {
+  color: var(--base-60);
+}
+
+@media (max-width: 670px) {
+  .site-footer__brand {
+    width: fit-content;
+    margin-inline: auto;
+  }
+  .site-footer__logo span {
+    font-size: calc(48 / 16 * 1rem);
+  }
+  .site-footer__logo {
+    width: fit-content;
+    margin-inline: auto;
+  }
+  .site-footer__logo img {
+    height: 44px;
+  }
+  .site-footer__info {
+    text-align: center;
+  }
+  .site-footer__inner {
+    display: flex;
+    gap: 48px;
+    flex-direction: column;
+    margin-bottom: 40px;
+  }
+}
+@media (max-width: 600px) {
+  .site-footer {
+    padding: 64px 0 40px 0;
+  }
+}
+@media (max-width: 500px) {
+  .site-footer__nav {
+    justify-content: space-between;
+    gap: initial;
+  }
+}

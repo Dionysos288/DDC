@@ -1,0 +1,36 @@
+
+
+<div class="layout-container">
+  {% include '@olivero_sub/components/general/header.html.twig' %}
+  {{ page.tabs }}
+
+  {% if page.highlighted %}
+    <div class="highlighted">
+      <aside class="layout-container section clearfix" role="complementary">
+        {{ page.highlighted }}
+      </aside>
+    </div>
+  {% endif %}
+
+  {% if page.featured_top %}
+    {% block featured %}
+      <div class="featured-top">
+        <aside class="featured-top__inner section layout-container clearfix" role="complementary">
+          {{ page.featured_top }}
+        </aside>
+      </div>
+    {% endblock %}
+  {% endif %}
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>
+    <div class="layout-content">
+      {{ page.content }}
+    </div>
+  </main>
+
+  {% include '@olivero_sub/components/general/footer.html.twig' %}
+</div>
+
+{{ page.page_top }}
+{{ page.page_bottom }} 
