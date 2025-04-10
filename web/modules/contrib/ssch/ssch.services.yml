@@ -1,0 +1,11 @@
+services:
+  logger.channel.ssch:
+    parent: logger.channel_base
+    arguments: ['ssch']
+  ssch.server_sided_code_highlighting:
+    class: Drupal\ssch\Service\ServerSidedCodeHighlightingService
+    arguments: ['@logger.channel.ssch']
+  ssch.event_subscriber:
+    class: Drupal\ssch\EventSubscriber\ServerSidedCodeHighlightingEventSubscriber
+    tags:
+      - { name: event_subscriber }

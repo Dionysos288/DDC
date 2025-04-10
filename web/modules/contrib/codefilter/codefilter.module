@@ -1,0 +1,74 @@
+<?php
+
+/**
+ * @file
+ * Contains hook implementations for the codefilter module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function codefilter_form_filter_format_edit_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Custom form validate function.
+  $form['#validate'][] = 'codefilter_form_filter_format_edit_form_validate';
+}
+
+/**
+ * Custom form validate function.
+ */
+function codefilter_form_filter_format_edit_form_validate(&$form, FormStateInterface $form_state) {
+  // Bail if our filter is not active in this format.
+  if (empty($form_state->getValue(['filters', 'codefilter', 'status']))) {
+    return;
+  }
+
+  $filter_manager = \Drupal::service('plugin.manager.filter');
+
+  if (empty($form_state->getValue(['filters', 'filter_htmlcorrector', 'status']))) {
+    $form_state->setError(
+      $form['filters']['status']['filter_htmlcorrector'],
+      t("The '@codefilter' filter also requires the '@filter_htmlcorrector' to be enabled.", [
+        '@codefilter' => $filter_manager->getDefinition('codefilter')['title'],
+        '@filter_htmlcorrector' => $filter_manager->getDefinition('filter_htmlcorrector')['title'],
+      ])
+    );
+  }
+
+  if ($form_state->getValue(['filters', 'filter_html', 'status']) && $form_state->getValue(['filters', 'filter_html', 'weight']) > $form_state->getValue(['filters', 'codefilter', 'weight'])) {
+    $form_state->setError(
+      $form['filters']['status']['filter_html'],
+      t("The '@filter_html' filter must go before the '@codefilter' filter so the HTML tags produced for PHP code are not removed.", [
+        '@codefilter' => $filter_manager->getDefinition('codefilter')['title'],
+        '@filter_html' => $filter_manager->getDefinition('filter_html')['title'],
+      ])
+    );
+  }
+
+  if ($form_state->getValue(['filters', 'filter_htmlcorrector', 'status']) &&
+    $form_state->getValue(['filters', 'filter_htmlcorrector', 'weight']) <
+    $form_state->getValue(['filters', 'codefilter', 'weight'])
+  ) {
+    $form_state->setError(
+      $form['filters']['status']['filter_htmlcorrector'],
+      t("The '@filter_htmlcorrector' filter must go after the '@codefilter' filter to correctly handle text output as a summary.", [
+        '@codefilter' => $filter_manager->getDefinition('codefilter')['title'],
+        '@filter_htmlcorrector' => $filter_manager->getDefinition('filter_htmlcorrector')['title'],
+      ])
+    );
+  }
+
+  if ($form_state->getValue(['filters', 'filter_autop', 'status']) &&
+    $form_state->getValue(['filters', 'filter_autop', 'weight']) <
+    $form_state->getValue(['filters', 'codefilter', 'weight'])
+  ) {
+    $form_state->setError(
+      $form['filters']['status']['filter_autop'],
+      t("The '@filter_autop' filter must go after the '@codefilter' filter to correctly handle line breaks.", [
+        '@codefilter' => $filter_manager->getDefinition('codefilter')['title'],
+        '@filter_autop' => $filter_manager->getDefinition('filter_autop')['title'],
+      ])
+    );
+  }
+}

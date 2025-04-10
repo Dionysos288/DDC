@@ -1,0 +1,9 @@
+# Schema for the configuration files of the codefilter module.
+
+filter_settings.codefilter:
+  type: filter
+  label: 'Code filter'
+  mapping:
+    nowrap_expand:
+      type: boolean
+      label: 'Expand nowrap'

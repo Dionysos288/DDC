@@ -1,0 +1,81 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for ssch module.
+ */
+
+declare(strict_types=1);
+
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\ssch\DynamicLibraryDefinitions;
+use Drupal\ssch\TemplatePreprocess;
+
+/**
+ * Implements hook_help().
+ */
+function ssch_help($route_name, RouteMatchInterface $route_match): ?string {
+  if ($route_name === 'help.page.ssch') {
+    $text = file_get_contents(__DIR__ . '/README.md');
+
+    if (!\Drupal::moduleHandler()->moduleExists('markdown')) {
+      return '<pre>' . Html::escape($text) . '</pre>';
+    }
+
+    // Use the Markdown filter to render the README.
+    $filter_manager = \Drupal::service('plugin.manager.filter');
+    $settings = \Drupal::configFactory()->get('markdown.settings')->getRawData();
+    $config = ['settings' => $settings];
+    return $filter_manager->createInstance('markdown', $config)->process($text, 'en');
+  }
+
+  return NULL;
+}
+
+/**
+ * Implements hook_theme().
+ */
+function ssch_theme(): array {
+  return [
+    'ssch_server_sided_code_highlighting' => [
+      'variables' => [
+        'code' => NULL,
+        'language' => NULL,
+        'lines_limit' => 0,
+        'ellipsis' => TRUE,
+        'style' => NULL,
+        'display_language' => FALSE,
+        'attributes' => [],
+      ],
+    ],
+  ];
+}
+
+/**
+ * Prepares variables for ssch server sided code highlighting templates.
+ *
+ * Default template: ssch-server-sided-code-highlighting.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - code: the code snippet.
+ *   - lines_limit: the number of code lines that should be shown.
+ *   - language: the programming language the code snippet is written in.
+ *   - display_language: indicates whether to display the programming language.
+ *   - style: the stylesheet of the highlight.php package to apply.
+ */
+function template_preprocess_ssch_server_sided_code_highlighting(array &$variables): void {
+  \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(TemplatePreprocess::class)
+    ->templatePreprocessSschServerSidedCodeHighlighting($variables);
+}
+
+/**
+ * Implements hook_library_info_build().
+ */
+function ssch_library_info_build(): array {
+  return \Drupal::service('class_resolver')
+    ->getInstanceFromDefinition(DynamicLibraryDefinitions::class)
+    ->libraryInfoBuild();
+}

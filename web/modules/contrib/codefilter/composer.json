@@ -1,0 +1,10 @@
+{
+    "description": "Provides tags for automatically escaping and formatting large pieces of code.",
+    "license": "GPL-2.0-or-later",
+    "minimum-stability": "dev",
+    "name": "drupal/codefilter",
+    "require": {
+        "php": ">=8.1.6"
+    },
+    "type": "drupal-module"
+}

@@ -1,0 +1,31 @@
+body {
+	font-family:'Droid Sans', 'Segoe UI', Arial, sans-serif;
+	padding-top:18px;
+	background:#f1f1f1;
+	color:#333;
+}
+
+#masthead {
+	margin-bottom:12px;
+	background:#09151e;
+	padding:30px 18px;
+}
+
+#masthead #banner {
+	background:url(images/web-app-tester.png) no-repeat;
+	height:64px;
+}
+
+#masthead #banner span {
+	display:none;
+}
+
+#intro {
+	padding:18px;
+}
+
+p {
+	line-height:21px;
+	font-size:15px;
+	margin-bottom:18px;
+}

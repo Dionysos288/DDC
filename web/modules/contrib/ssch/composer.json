@@ -1,0 +1,15 @@
+{
+    "name": "drupal/ssch",
+    "description": "Use server sided rendering to highlight code snippets.",
+    "type": "drupal-module",
+    "authors": [
+        {
+            "name": "Niels Sluijs",
+            "email": "niels@sicse.dev"
+        }
+    ],
+    "require": {
+        "drupal/vendor_stream_wrapper": "^2.0",
+        "scrivo/highlight.php": "^9.18"
+    }
+}

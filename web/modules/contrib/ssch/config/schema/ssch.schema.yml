@@ -1,0 +1,55 @@
+field.storage_settings.ssch:
+  type: field.storage_settings.string_long
+  label: 'Code snippet (server sided code highlighting) settings'
+
+field.field_settings.ssch:
+  type: mapping
+  label: 'Code snippet (server sided code highlighting) settings'
+
+field.value.ssch:
+  type: mapping
+  label: 'Default value'
+  mapping:
+    value:
+      type: text
+      label: 'Code snippet'
+    language:
+      type: string
+      label: 'Programming language'
+
+field.widget.settings.ssch_widget:
+  type: mapping
+  label: 'Text area with programming language selection widget settings'
+  mapping:
+    rows:
+      type: integer
+      label: 'Rows'
+    placeholder:
+      type: label
+      label: 'Placeholder'
+    languages:
+      type: sequence
+      label: 'Programming languages'
+      sequence:
+        type: string
+        label: 'Programming language'
+    default_language:
+      type: string
+      label: 'Default selected programming language'
+
+field.formatter.settings.ssch_formatter:
+  type: mapping
+  label: 'Code snippet (server sided code highlighting) formatter settings'
+  mapping:
+    lines_limit:
+      type: integer
+      label: 'Number code lines to show'
+    ellipsis:
+      type: boolean
+      label: 'Replace three dots with an ellipsis symbol'
+    style:
+      type: string
+      label: 'Syntax highlighting style'
+    display_language:
+      type: boolean
+      label: 'Show the programming language'

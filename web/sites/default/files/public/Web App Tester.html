@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Web App Tester</title>
+<link href="Web%20App%20Tester_files/reset.css" rel="stylesheet" type="text/css">
+<link href="Web%20App%20Tester_files/common.css" rel="stylesheet" type="text/css">
+
+<link href="Web%20App%20Tester_files/css.css" rel="stylesheet" type="text/css">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+</script><script type="text/javascript" src="Web%20App%20Tester_files/jquery.js"></script>
+<script src="Web%20App%20Tester_files/app.js"></script>
+<link rel="stylesheet" type="text/css" href="Web%20App%20Tester_files/injected.css"></head>
+
+<body>
+<div id="webapptester">
+
+	<div id="menu">
+  	<header id="masthead">
+    	
+    </header><!-- header#masthead -->
+    
+    <div class="control-bar">
+      <div id="address-bar" class="controls">
+        <form id="update-url-form">
+          <div class="field address">
+            <label for="url">Address</label>
+            <input style="width: 1410px;" id="url" value="http://dominiquedecooman.com" type="text">
+          </div><!-- div.field -->
+          <div style="top: 2px; left: -4px;" class="field go_url">
+            <button>Go →</button>
+          </div><!-- div.field -->
+        </form>
+      </div><!-- div#address-bar -->
+      
+      <div id="orientation" class="controls">
+        <h1>Orientation:</h1>
+        <button class="portrait selected"><span class="icon"></span><span class="label">Portrait</span></button>
+        <button class="landscape" ><span class="icon"></span><span class="label">Landscape</span></button>
+      </div><!-- div#orientation -->
+	  
+      <div id="device_type" class="controls">
+        <h1>Device:</h1>
+        <button class="iphone selected"><span class="icon"></span><span class="label">iPhone</span></button>
+        <button class="ipad"><span class="icon"></span><span class="label">iPad</span></button>
+      </div><!-- div#device_type -->
+	  
+    </div><!-- div.control-bar -->
+  </div><!-- div#menu -->
+
+	<div id="testarea">
+
+	    <div id="chrome" class="portrait">
+        <iframe id="browser" src="Web%20App%20Tester_files/demo.html"></iframe>
+      </div><!-- div#chrome -->
+      
+	</div><!-- div#testarea -->
+  
+</div><!-- div#webapptester -->
+
+<footer id="site-footer">
+<script type="text/javascript">
+  function getParameterByName(name)
+{
+  name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+  var regexS = "[\\?&]" + name + "=([^&#]*)";
+  var regex = new RegExp(regexS);
+  var results = regex.exec(window.location.search);
+  if(results == null)
+    return "";
+  else
+    return decodeURIComponent(results[1].replace(/\+/g, " "));
+}
+
+  var lang = getParameterByName('lang');  
+  console.log(lang);
+  if (lang) {
+    $('#browser').attr('src', 'http://dominiquedecooman.com/' + lang);
+  }
+  else {
+    $('#browser').attr('src', 'http://dominiquedecooman.com/index.php');
+  }
+</script>
+</footer><!-- footer#site-footer -->
+
+
+
+
+</body></html>

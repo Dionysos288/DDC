@@ -1,0 +1,53 @@
+Cache warmer ,2012-11-15 22:38 ,http://www.metaltoad.com/blog/how-drupals-cron-killing-you-your-sleep-si...
+Selenium monitoring drupal module ,2012-11-15 14:51 ,https://drupal.org/sandbox/patrickd/1440904
+Big data ,2012-11-07 16:14 ,http://techcrunch.com/2012/10/27/big-data-right-now-five-trendy-open-sou...
+Automated deployments aegir ,2012-10-25 14:11 ,http://www.computerminds.co.uk/drupal-code/automated-deployments-using-a...
+CDN cloudfront drupal amazon ,2012-09-20 15:24 ,http://www.metaltoad.com/blog/amazon-cloudfront-drupal
+Search api extra fields to search on ,2012-09-19 14:08 ,http://ygerasimov.com/add-custom-field-search-api-apachesolr-index
+Your very won proxy server ,2012-09-17 15:37 ,http://freenuts.com/how-to-use-your-vps-as-a-ssh-proxy/
+Varnish and multiple webservers ,2012-09-17 09:35 ,http://www.lullabot.com/articles/varnish-multiple-web-servers-drupal
+Git patch ,2012-09-13 13:41 ,http://ariejan.net/2009/10/26/how-to-create-and-apply-a-patch-with-git
+Chaos monkey preparing for the worst ,2012-08-09 13:31 ,http://techblog.netflix.com/2012/07/chaos-monkey-released-into-wild.html
+Mongodb why ,2012-08-09 13:06 ,http://blog.mongolab.com/2012/08/why-is-mongodb-wildly-popular/
+Drupal monitoring ,2012-08-06 17:29 ,http://drupal.org/project/prod_check
+Extend virtualbox disk ,2012-07-19 18:47 ,"http://thestandardoutput.com/2011/05/how-to-resize-a-virtualbox-vdi-file/
+http://thestandardoutput.com/2011/05/how-to-resize-a-virtualbox-vdi-file/"
+Cloud puppet meets fog ,2012-06-18 14:29 ,http://www.slideshare.net/pk.habi/cloud-meetsfogpuppetrootconf
+Facet api diagram ,2012-06-18 13:20 ,http://drupal.org/files/ClassDiagram_facetapi.png
+Drupal debug code inside vagrant using xdebug ,2012-06-18 13:12 ,http://tiger-fish.com/blog/drupal-debugging-code-inside-vagrant-instance...
+Pro and con opensource software ,2012-06-11 16:23 ,http://www.educause.edu/ero/article/there-such-thing-free-software-pros-...
+Customizing Apachesolr facets built by FacetAPI with the power of CTools ,2012-06-04 13:24 ,www.trellon.com/content/blog/apachesolr-and-facetapi
+How to update your site modules using drush ,2012-06-04 10:56 ,http://echodittolabs.org/blog/2011/01/updating-your-drupal-site-using-drush
+Get wild with drupal facet api ,2012-06-01 16:24 ,http://wunderkraut.com/en/blog/get-wild-facets-%E2%80%93-extending-facet...
+Performance on the front end ,2012-05-31 12:38 ,"http://drupalwatchdog.com/1/2/big-performance-wins-on-front-end
+Tip for having non blocking javascript
+http://engineeredweb.com/blog/non-blocking-script-loading-drupal"
+Must have books ,2012-05-29 21:16 ,http://artofmanliness.com/2008/05/14/100-must-read-books-the-essential-m...
+Mobile-izing your organisation ,2012-05-23 16:09 ,http://www.slideshare.net/AcquiaInc/mobileizing-your-organization-with-d...
+Drupal memcached and nginx ,2012-05-22 14:04 ,http://sandervandooren.be/drupal/drupal-memcached-nginx
+What technology does facebook use ,2012-05-14 13:40 ,"http://www.makeuseof.com/tag/facebook-work-nuts-bolts-technology-explained/
+http://developers.facebook.com/opensource/"
+Selenium Simpletest javascript drupal7 ,2012-05-14 09:59 ,www.koumbit.org/en/articles/selenium-testing-javascript-simpletest-drupal-7
+Drupal with nginx config files ,2012-05-09 10:25 ,https://github.com/perusio/drupal-with-nginx
+Nodejs integration in drupal ,2012-04-26 16:28 ,http://theoleschool.com/blog/module-development-nodejs-integration
+"How to host multiple websites in drupal. (domain access, multisite, features) ",2012-04-17 17:06 ,http://www.palantir.net/blog/multi-headed-drupal
+Deploying drupal ,2012-04-16 16:26 ,"Sam boyer explains how drupal.org uses all the best practices of continuous delivery.
+http://denver2012.drupal.org/program/sessions/delivering-drupal
+Brutal truth: as a community, Drupal's understanding is pathetically behind much of the world when it comes to devops and deployment. Most shops, and even many larger companies with dedicated Drupal teams, use one-off, unstructured, error-prone systems to get code from development to production. This is not OK. In my experience, these problems are cast under the umbrella of project management. As such, solutions tend to come in two forms:
+Better project tracking software.
+Better human communication.
+Those things are important, but they really miss the big picture. At the end of the day, what matters is getting code from development to production - ""delivering"" it. Doing that properly means demystifying and solidifying the steps in that process, which entails tools like Git, Jenkins, Puppet/Chef, and Capistrano. Or, in a word: Devops. Building a system that can deliver code in a way that informs and includes all the relevant stakeholders, from developers to product owners, requires the right tools linked with the right mentality. In this session, we'll explore tools and mentality together."
+Just load one field of your entity ,2012-04-16 13:34 ,http://btmash.com/article/2012-04-13/i-just-want-one-field-using-fieldat...
+Drupal nginx ,2012-04-13 13:07 ,http://wiki.nginx.org/Drupal
+Xdebug remote debugging ,2012-04-13 10:13 ,http://blog.rajatpandit.com/2010/04/30/xdebug-remote-debugging/
+Speedup with nginx and memcached ,2012-04-12 15:35 ,http://technosophos.com/content/53900-speedup-nginx-drupal-and-memcache-...
+Select field values with Entity metadata wrappers ,2012-04-11 12:01 ,http://drupal.org/node/1021556
+Most promising companies according to forbes ,2012-03-21 22:13 ,http://www.forbes.com/lists/2011/28/most-promising-companies-11_land.html
+Server monitoring tools ,2012-03-08 15:56 ,http://sixrevisions.com/tools/10-free-server-network-monitoring-tools-th...
+Drupal and puppet ,2012-03-08 10:46 ,"http://bitfieldconsulting.com/puppet-drupal
+http://bitfieldconsulting.com/puppet-tutorial"
+New drupal 8 smart blocks ,2012-03-06 14:41 ,http://krisandju.e-webindustries.com/blog/drupal-8-blocks-layouts-everyw...
+Drupal performance checklist ,2012-03-05 11:23 ,http://books.tag1consulting.com/scalability
+Entityfield query ,2012-02-23 16:50 ,http://treehouseagency.com/blog/tim-cosgrove/2012/02/16/entityfieldquery...
+Understanding where drupal 8 is going to ,2012-02-23 16:39 ,http://www.unleashedmind.com/en/blog/sun/drupal-8-the-path-forward
+Explaining hadoop ,2012-02-10 14:55 ,http://www.forbes.com/sites/danwoods/2011/11/03/explaining-hadoop-to-you...
