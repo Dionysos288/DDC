@@ -33,11 +33,28 @@
     <p class="newsletter__description body-xl">
       Get the latest insights, trends, and updates delivered straight to your inbox.
     </p>
-    <form class="newsletter__form">
-      <div class="newsletter__form-group">
-        <input type="email" class="newsletter__input" placeholder="Enter Your Email" required>
-        <button type="submit" class="newsletter__submit">Get Started</button>
-      </div>
-    </form>
+    <div id="mauticform_wrapper_newslettersubscriptionform" class="mauticform_wrapper newsletter__form">
+      <form autocomplete="false" role="form" method="post" id="mauticform_newslettersubscriptionform" data-mautic-form="newslettersubscriptionform">
+        <div class="mauticform-innerform">
+          <div class="mauticform-page-wrapper mauticform-page-1" data-mautic-form-page="1">
+            <div class="newsletter__form-group">
+              <div id="mauticform_newslettersubscriptionform_email" class="mauticform-row mauticform-email mauticform-field-1 mauticform-required" data-validate="email" data-validation-type="email">
+                <input type="email" name="mauticform[email]" class="newsletter__input mauticform-input" id="mauticform_input_newslettersubscriptionform_email" placeholder="Enter Your Email" required>
+              </div>
+              <div id="mauticform_newslettersubscriptionform_what_is_12_plus_12" style="display: none !important;">
+                <input type="hidden" name="mauticform[what_is_12_plus_12]" value="24" id="mauticform_input_newslettersubscriptionform_what_is_12_plus_12">
+              </div>
+              <div id="mauticform_newslettersubscriptionform_submit" class="mauticform-row mauticform-button-wrapper mauticform-field-3">
+                <button type="submit" name="mauticform[submit]" id="mauticform_input_newslettersubscriptionform_submit" value="1" class="newsletter__submit">Get Started</button>
+              </div>
+            </div>
+            <span class="newsletter__message" style="display: none;"></span>
+          </div>
+        </div>
+        <input type="hidden" name="mauticform[formId]" id="mauticform_newslettersubscriptionform_id" value="1">
+        <input type="hidden" name="mauticform[return]" id="mauticform_newslettersubscriptionform_return" value="">
+        <input type="hidden" name="mauticform[formName]" id="mauticform_newslettersubscriptionform_name" value="newslettersubscriptionform">
+      </form>
+    </div>
   </div>
 </section> 

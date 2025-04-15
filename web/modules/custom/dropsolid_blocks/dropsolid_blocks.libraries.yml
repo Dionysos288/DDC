@@ -1,0 +1,7 @@
+mautic-form:
+  js:
+    js/mautic-form-init.js: {}
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/once

@@ -22,6 +22,15 @@ class NewsletterBlock extends BlockBase {
       '#theme' => 'dropsolid_newsletter_block',
       '#base_path' => base_path(),
       '#directory' => \Drupal::service('extension.list.theme')->getPath('olivero_sub'),
+      '#attached' => [
+        'library' => ['dropsolid_blocks/mautic-form'],
+        'drupalSettings' => [
+          'mautic' => [
+            'domain' => 'https://mautic.dominiquedecooman.com',
+            'formId' => '1',
+          ],
+        ],
+      ],
     ];
   }
 } 

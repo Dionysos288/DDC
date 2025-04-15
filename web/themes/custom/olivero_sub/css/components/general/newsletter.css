@@ -67,9 +67,11 @@
   border-radius: 4px;
   overflow: hidden;
 }
-
-.newsletter__input {
+#mauticform_newslettersubscriptionform_email {
   flex: 1;
+}
+.newsletter__input {
+  width: 100% !important;
   height: 60px;
   padding: 0 24px;
   border: none !important;
@@ -148,4 +150,11 @@
   .newsletter__pattern {
     right: -50%;
   }
+}
+
+.newsletter__message {
+  display: block;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  transition: all 0.3s ease;
 }
